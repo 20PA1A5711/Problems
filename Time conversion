@@ -1,0 +1,26 @@
+class Result {
+
+    /*
+     * Complete the 'timeConversion' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+
+    public static String timeConversion(String s) {
+    // Write your code here
+    int i=Integer.parseInt(s.substring(0,2));
+    if( (s.substring(8).equals("AM"))&&(s.substring(0,2).equals("12")) )
+    s="00"+s.substring(2);
+    else{
+        if(s.substring(8).equals("PM") && i<12){
+            i=i+12;
+            String j=String.valueOf(i);
+            s=j+s.substring(2);
+        }
+    }
+    return s.substring(0,8);
+
+    }
+
+}
