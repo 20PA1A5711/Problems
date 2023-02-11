@@ -1,0 +1,80 @@
+//SALES BY MATCH
+class Result {
+    public static int sockMerchant(int n, List<Integer> ar) {
+    // Write your code here
+    int pairs=0;
+    for(int i=0;i<ar.size()-1;i++){
+        for(int j=i+1;j<ar.size();j++){
+            if(ar.get(i)==ar.get(j)){
+                pairs++;
+                ar.remove(j);
+                break;
+            }
+        }
+    }
+    return pairs;
+    }
+}
+
+//ZIG ZAG SEQUENCE
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+public class Main {
+    
+    public static void main (String[] args) throws java.lang.Exception {
+        Scanner kb = new Scanner(System.in);
+        int test_cases = kb.nextInt();
+        for(int cs = 1; cs <= test_cases; cs++){
+            int n = kb.nextInt();
+             int a[] = new int[n];
+            for(int i = 0; i < n; i++){
+                a[i] = kb.nextInt();
+            }
+            findZigZagSequence(a, n);
+        }
+   }
+   
+    public static void findZigZagSequence(int [] a, int n){
+        Arrays.sort(a);
+        int mid = (n - 1)/2;
+        int temp = a[mid];
+        a[mid] = a[n - 1];
+        a[n - 1] = temp;
+    
+        int st = mid + 1;
+        int ed = n - 2;
+        while(st <= ed){
+            temp = a[st];
+            a[st] = a[ed];
+            a[ed] = temp;
+            st = st + 1;
+            ed = ed - 1;
+        }
+        for(int i = 0; i < n; i++){
+            if(i > 0) System.out.print(" ");
+            System.out.print(a[i]);
+        }
+        System.out.println();
+    }
+}
+
+//DRAWING BOOK
+class Result {
+    public static int pageCount(int n, int p) {
+    // Write your code here
+    int a=0;
+    if(n%2==0){
+        a=(n-p+1)/2;
+    }
+    else{
+        a=(n-p)/2;
+    }
+    int b=p/2;
+    if(a<b)
+    return a;
+    else 
+    return b;
+    }
+}
